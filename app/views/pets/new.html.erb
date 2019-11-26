@@ -1,0 +1,14 @@
+<div class="container py-5">
+	<h1>Creating a pet</h1>
+	<%= simple_form_for(@pet) do |f| %>
+	  <%= f.error_notification %>
+  	<%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+
+		<%= f.input :name %>
+		<%= f.input :species, as: :select, collection: Pet::SPECIES %>
+		<%= f.input :date_found %>
+		<%= f.input :address %>
+		<%= f.submit 'Save pet', class: 'btn btn-primary' %>
+	<% end %>	
+</div>
+
